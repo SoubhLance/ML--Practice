@@ -8,3 +8,5 @@ openpyxl
 matplotlib
 seaborn
 pyttsx3
+fastapi
+uvicorn
