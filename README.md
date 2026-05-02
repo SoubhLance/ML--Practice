@@ -7,7 +7,7 @@
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Practice%20Repo-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![NLP](https://img.shields.io/badge/NLP-Included-8E24AA?style=for-the-badge&logo=openai&logoColor=white)
 
-**A comprehensive, end-to-end Machine Learning & Data Science practice repository —**
+**A comprehensive, end-to-end Machine Learning & Data Science practice repository **
 **from Python basics all the way to model deployment with Docker & MLFlow.**
 
 *by [SoubhLance (Soubhik Sadhu)](https://github.com/SoubhLance)*
