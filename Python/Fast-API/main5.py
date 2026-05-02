@@ -1,4 +1,4 @@
-# Viewing the Data fetched from json
+# Viewing the Data fetched from json using path parameters
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -18,14 +18,10 @@ def hello():
 
 @app.get("/about")
 def about():
-    return {"message": "This is a simple API created using FASTAPI to demonstrate the Read functions"}
+    return {"message": "This is a simple API created using FASTAPI to demonstrate the Read functions with paticular parameters to fetch data from json file"}
 
 
 @app.get("/view")
 def view_patients():
     data = load_data()
     return data
-
-@app.get("/patients/{patient_id}")
-def view_patient(patient_id: str):
-    data = load_data()
