@@ -1,6 +1,6 @@
 # Viewing the Data fetched from json
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Path
 from pydantic import BaseModel
 import json
 
@@ -27,5 +27,11 @@ def view_patients():
     return data
 
 @app.get("/patients/{patient_id}")
-def view_patient(patient_id: str):
+def view_patient(patient_id: str = Path(...,description="ID of the patient in the database",example='P001')):
+    #loading all the patients
     data = load_data()
+
+    if patient_id in data:
+        return data[patient_id]
+    return {'error':'patient not found'}
+ 
