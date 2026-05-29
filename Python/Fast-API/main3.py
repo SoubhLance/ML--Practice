@@ -10,4 +10,4 @@ def hello():
 
 @app.get("/about")
 def about():
-    return {"message": "This is a simple API created using FASTAPI by me (Soubhik Sadhu);"}
+    return {"message": "This is a simple API created using FASTAPI by me (Soubhik Sadhu);"} 
