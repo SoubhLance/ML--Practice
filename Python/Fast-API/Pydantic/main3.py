@@ -1,30 +1,32 @@
-# def insert_patient_data(name,age):
-#      print(name) #STR
-#      print(age) #INT
-#      print('inserted successfully to the database')
+## Field Validator
 
-
-
-# insert_patient_data("Nilesh","thirty-two")
-
-## To Fix that we are using the pydantic 
-
-from pydantic import BaseModel,EmailStr,AnyUrl,Field
+from pydantic import BaseModel,EmailStr,AnyUrl,Field, field_validator
 from typing import List, Dict, Optional, Annotated
 
 
 class Patient(BaseModel):
-    new_name= Annotated[str, Field(max_length=50,title="Name of the Person New Name",description="Give the new name of the patient in less than 50 characters", examples= ['Nitish',])]
-    name:str = Field(max_length=50)
-    age:int = Field(gt=0,lt=120)
-    email:EmailStr
-    linedin:AnyUrl
-    weight:float = Field(gt=0)
+    name: str
+    emsil: EmailStr
+    age:int
+    weight: float
     married:bool
-    allergies:Optional[List[str]]  = Field(max_length=5)
-    contact_details: Dict[str,str]
+    allergies:List[str]
+    contact_details:Dict[str,str]
 
+    @field_validator('email')
+    @classmethod
+    def email_validator(cls,value):
+        valid_domains= ['hdfc.com','icici.com']
+        domain_name=value.split('@')[-1]
+        if domain_name not in valid_domains:
+           raise ValueError('Not a Valid domain')
 
+    @field_validator('name')
+    @classmethod
+    def Name_upper(cla,value):
+        return value.upper()
+    
+    
 def insert_patient_data(patient : Patient):
 
     print(patient.name)
